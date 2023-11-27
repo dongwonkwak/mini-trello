@@ -1,0 +1,11 @@
+openapi: 3.0.3
+info:
+  title: MiniTrello API
+  version: "0.1"
+paths:
+  /user:
+    post:
+      summary: Register User
+      responses:
+        '201':
+          description: Created
