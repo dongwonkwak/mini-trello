@@ -12,6 +12,9 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    passayVersion = '1.6.4'
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -20,10 +23,12 @@ dependencies {
 
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
-
+    implementation "org.passay:passay:${passayVersion}"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
