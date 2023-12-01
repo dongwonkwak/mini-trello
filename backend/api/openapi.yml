@@ -1,11 +1,71 @@
 openapi: 3.0.3
 info:
-  title: MiniTrello API
+  title:  MiniTrello API
   version: "0.1"
+tags:
+  - name: Users
+    description: User-related operations
 paths:
-  /user:
+  /v1/users:
     post:
-      summary: Register User
+      tags:
+        - user
+      summary: Signup a new user
+      description: Registers a new user, who can login
+      operationId: signUp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInReq'
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignedInUser'
+        '400':
+          description: Username already existed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    SignInReq:
+      description: Request body for Sign-in
+      type: object
+      required:
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    SignedInUser:
+      description: Signed-in user information
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
