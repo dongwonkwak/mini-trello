@@ -1,0 +1,9 @@
+{
+  "apiPackage": "dev.minitrello.adapters.input.rest.api",
+  "modelPackage": "dev.minitrello.adapters.input.rest.model",
+  "serializableModel": true,
+  "useTags": true,
+  "useSpringBoot3": true,
+  "interfaceOnly": true,
+  "dateLibrary": "java8"
+}

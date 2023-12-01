@@ -30,7 +30,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorMessage'
 components:
   schemas:
     SignInReq:
@@ -56,7 +56,7 @@ components:
           format: uuid
         username:
           type: string
-    Error:
+    ErrorMessage:
       type: object
       required:
         - code

@@ -21,7 +21,7 @@ public class ValidatorProvider {
         if (!violations.isEmpty()) {
             var message = violations.stream()
                     .map(ConstraintViolation::getMessage)
-                    .collect(Collectors.joining(System.lineSeparator()));
+                    .collect(Collectors.joining(","));
             throw new ConstraintViolationException(message, violations);
         }
     }

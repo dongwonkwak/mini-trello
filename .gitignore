@@ -1,2 +1,5 @@
 backend/.idea
 backend/users.json
+backend/.openapi-generator
+backend/src/main/java/dev/minitrello/adapters/input/rest/api
+backend/src/main/java/dev/minitrello/adapters/input/rest/model

@@ -1,15 +1,18 @@
 package dev.minitrello.unittests.domain.useraccount;
 
 import dev.minitrello.application.usecases.UserAccountUseCase.RegisterUserAccountCommand;
+import dev.minitrello.domain.entity.UserAccount;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @DisplayName("When register new account")
+@SpringBootTest(classes = UserAccount.class)
 class UserAccountTest {
 
     @Test
@@ -54,9 +57,4 @@ class UserAccountTest {
 
         assertEquals("Password is not strong", ex.getMessage());
     }
-
-
-
-
-
 }
