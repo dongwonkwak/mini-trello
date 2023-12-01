@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 
+
 public class UserAccountManagementOutputFileAdapter implements UserManagementOutputPort {
 
     private static UserAccountManagementOutputFileAdapter instance;
@@ -37,6 +38,16 @@ public class UserAccountManagementOutputFileAdapter implements UserManagementOut
         }
 
         return userAccount;
+    }
+
+    @Override
+    public Integer countUserAccountByUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public Integer countUserAccountByEmail(String email) {
+        return null;
     }
 
     public static UserAccountManagementOutputFileAdapter getInstance() {
