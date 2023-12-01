@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: MiniTrello
+
+  datasource:
+    name: minitrello
+    url: jdbc:h2:mem:minitrello;DB_CLOSE_DELAY=-1;IGNORECASE=TRUE;DATABASE_TO_UPPER=false
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+
+  jpa:
+    properties:
+      hibernate:
+        default_schema: minitrello
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+  flyway:
+    url: jdbc:h2:mem:minitrello
+    schemas: minitrello
+    user: sa
+    password:

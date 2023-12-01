@@ -22,12 +22,6 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
             return true;
         }
 
-        var messages = validator.getMessages(result);
-        var messageTemplate = String.join(",", messages);
-        context.buildConstraintViolationWithTemplate(messageTemplate)
-                .addConstraintViolation()
-                .disableDefaultConstraintViolation();
-
         return false;
     }
 
