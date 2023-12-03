@@ -5,5 +5,8 @@
   "useTags": true,
   "useSpringBoot3": true,
   "interfaceOnly": true,
-  "dateLibrary": "java8"
+  "dateLibrary": "java8",
+  "generateApiTests": false,
+  "generateSupportingFiles": false,
+  "skipOperationExample": true
 }
