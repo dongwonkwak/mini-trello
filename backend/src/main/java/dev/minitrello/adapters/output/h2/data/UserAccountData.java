@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @Builder
 @Data
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -33,6 +32,6 @@ public class UserAccountData implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "createAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 }

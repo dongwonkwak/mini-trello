@@ -17,7 +17,6 @@ public interface RegisterUserAccountUseCase {
 
     record RegisterUserAccountCommand(
             @ValidUsername String username,
-
             @ValidEmail String email,
             @NotEmpty @ValidPassword String password
     )  {
