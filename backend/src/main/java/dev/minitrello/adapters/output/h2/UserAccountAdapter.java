@@ -1,17 +1,19 @@
 package dev.minitrello.adapters.output.h2;
 
 
+import dev.minitrello.adapters.output.h2.mapper.UserAccountMapper;
+import dev.minitrello.adapters.output.h2.repository.UserAccountRepository;
 import dev.minitrello.application.ports.output.RegisterUserAccountStatePort;
 import dev.minitrello.domain.entity.UserAccount;
 
-import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor;
 
 
-@Service
+@RequiredArgsConstructor
 public class UserAccountAdapter implements RegisterUserAccountStatePort {
 
-    //@Autowired
-    //private UserAccountRepository userAccountRepository;
+    private final UserAccountRepository userAccountRepository;
+    private final UserAccountMapper mapper;
 
 
     @Override

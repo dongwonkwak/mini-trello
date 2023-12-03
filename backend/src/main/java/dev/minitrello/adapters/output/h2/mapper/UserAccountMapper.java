@@ -3,10 +3,12 @@ package dev.minitrello.adapters.output.h2.mapper;
 import dev.minitrello.adapters.output.h2.data.UserAccountData;
 import dev.minitrello.domain.entity.UserAccount;
 import dev.minitrello.domain.entity.UserAccount.UserAccountId;
+import org.springframework.stereotype.Component;
 
+//@Component
 public class UserAccountMapper {
 
-    public static UserAccount toEntity(UserAccountData userAccountData) {
+    public UserAccount toEntity(UserAccountData userAccountData) {
         return UserAccount.withId(
                 new UserAccountId(userAccountData.getUserId()),
                 userAccountData.getUsername(),
