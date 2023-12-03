@@ -54,4 +54,14 @@ public class UserAccount {
     public static class UserAccountId {
         private UUID value;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserAccount that = (UserAccount) o;
+        return (this.username.equals(that.username) &&
+                this.email.equals(that.email) &&
+                this.password.equals(that.password));
+    }
 }

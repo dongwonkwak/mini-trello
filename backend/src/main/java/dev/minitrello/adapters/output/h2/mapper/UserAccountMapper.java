@@ -4,7 +4,6 @@ import dev.minitrello.adapters.output.h2.data.UserAccountData;
 import dev.minitrello.domain.entity.UserAccount;
 import dev.minitrello.domain.entity.UserAccount.UserAccountId;
 
-//@Component
 public class UserAccountMapper {
 
     public UserAccount toEntity(UserAccountData userAccountData) {

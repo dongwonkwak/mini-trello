@@ -20,6 +20,10 @@ processResources {
     dependsOn(tasks.openApiGenerate)
 }
 
+processTestResources {
+    dependsOn(tasks.openApiGenerate)
+}
+
 openApiGenerate {
     generatorName = "spring"
     library = "spring-boot"
@@ -38,6 +42,9 @@ ext {
     junitVersion = '5.10.1'
     swaggerVersion = '2.2.19'
     webmvcuiVersion = '2.2.0'
+    cucumberVersion = '7.14.1'
+    typeSafeVersion = '1.4.3'
+    serenityVersion = '4.0.21'
 }
 
 dependencies {
@@ -48,6 +55,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation "org.passay:passay:${passayVersion}"
+    implementation "com.typesafe:config:${typeSafeVersion}"
 
     runtimeOnly 'com.h2database:h2'
     implementation 'org.flywaydb:flyway-core'
@@ -65,6 +73,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+//    testImplementation "io.cucumber:cucumber-spring:${cucumberVersion}"
+
+//    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+//    testImplementation "net.serenity-bdd:serenity-spring:${serenityVersion}"
+//    testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
 }
 
 test {
