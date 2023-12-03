@@ -1,6 +1,6 @@
 package dev.minitrello.unittests.domain.useraccount;
 
-import dev.minitrello.application.usecases.UserAccountUseCase.RegisterUserAccountCommand;
+import dev.minitrello.application.ports.input.RegisterUserAccountUseCase.RegisterUserAccountCommand;
 import dev.minitrello.domain.entity.UserAccount;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @DisplayName("When register new account")
-@SpringBootTest(classes = UserAccount.class)
+//@SpringBootTest(classes = UserAccount.class)
 class UserAccountTest {
 
     @Test
@@ -35,7 +35,7 @@ class UserAccountTest {
         var ex = Assertions.assertThrows(ConstraintViolationException.class, () -> {
             new RegisterUserAccountCommand(
                     "TJ",
-                    "TJ@minitrello.dev",     // invalid email
+                    "TJ@minitrello.dev",
                     "Password1@"
             );
         });

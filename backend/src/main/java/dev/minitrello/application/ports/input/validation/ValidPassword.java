@@ -1,5 +1,6 @@
-package dev.minitrello.common.validation;
+package dev.minitrello.application.ports.input.validation;
 
+import dev.minitrello.application.ports.input.validation.PasswordConstraintValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

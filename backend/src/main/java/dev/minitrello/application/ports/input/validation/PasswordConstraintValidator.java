@@ -1,4 +1,4 @@
-package dev.minitrello.common.validation;
+package dev.minitrello.application.ports.input.validation;
 
 
 import jakarta.validation.ConstraintValidator;

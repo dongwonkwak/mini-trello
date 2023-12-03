@@ -4,10 +4,6 @@ import dev.minitrello.domain.entity.UserAccount;
 
 
 
-public interface UserManagementOutputPort {
+public interface RegisterUserAccountStatePort {
     UserAccount persistUserAccount(UserAccount userAccount);
-
-    Integer countUserAccountByUsername(String username);
-
-    Integer countUserAccountByEmail(String email);
 }

@@ -16,13 +16,13 @@ public class UserAccountMapper {
         );
     }
 
-    public static UserAccountData fromEntity(UserAccount userAccount) {
-        return new UserAccountData(
-                userAccount.getId().getValue(),
-                userAccount.getUsername(),
-                userAccount.getEmail(),
-                userAccount.getPassword(),
-                userAccount.getCreatedAt()
-        );
-    }
+//    public static UserAccountData fromEntity(UserAccount userAccount) {
+//        return new UserAccountData(
+//                userAccount.getId().getValue(),
+//                userAccount.getUsername(),
+//                userAccount.getEmail(),
+//                userAccount.getPassword(),
+//                userAccount.getCreatedAt()
+//        );
+//    }
 }
