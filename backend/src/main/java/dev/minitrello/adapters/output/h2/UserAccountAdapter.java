@@ -22,12 +22,12 @@ public class UserAccountAdapter implements RegisterUserAccountStatePort {
     public UserAccount persistUserAccount(UserAccount userAccount) {
         userAccountRepository.findByUsername(userAccount.getUsername())
                 .ifPresent(username -> {
-                    throw new UsernameExistsException();
+                    throw new UsernameExistsException("Username already exists");
                 });
 
         userAccountRepository.findByEmail(userAccount.getEmail())
                 .ifPresent(email -> {
-                    throw new EmailExistsException();
+                    throw new EmailExistsException("Email already exists");
                 });
 
         userAccountRepository.save(mapper.fromEntity(userAccount));
