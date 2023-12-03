@@ -10,20 +10,18 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @AllArgsConstructor
+@Getter
 public class UserAccount {
-
-    @Getter
     private final UserAccountId id;
 
-    @Getter
     @NonNull
     private final String username;
 
-    @Getter
+
     @NonNull
     private final String email;
 
-    @Getter
+
     @NonNull
     private final String password;
 
