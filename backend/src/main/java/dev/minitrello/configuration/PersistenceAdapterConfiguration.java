@@ -1,4 +1,4 @@
-package dev.minitrello;
+package dev.minitrello.configuration;
 
 import dev.minitrello.adapters.output.h2.UserAccountAdapter;
 import dev.minitrello.adapters.output.h2.mapper.UserAccountMapper;
