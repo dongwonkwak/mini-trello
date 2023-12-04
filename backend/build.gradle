@@ -44,7 +44,6 @@ ext {
     webmvcuiVersion = '2.2.0'
     cucumberVersion = '7.14.1'
     typeSafeVersion = '1.4.3'
-    serenityVersion = '4.0.21'
 }
 
 dependencies {
@@ -76,11 +75,6 @@ dependencies {
 
     testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
     testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
-//    testImplementation "io.cucumber:cucumber-spring:${cucumberVersion}"
-
-//    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
-//    testImplementation "net.serenity-bdd:serenity-spring:${serenityVersion}"
-//    testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
 }
 
 test {

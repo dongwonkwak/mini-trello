@@ -13,9 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class UserAccountAdapter implements RegisterUserAccountStatePort {
-
     private final UserAccountRepository userAccountRepository;
-    private final UserAccountMapper mapper;
 
 
     @Override
@@ -30,7 +28,7 @@ public class UserAccountAdapter implements RegisterUserAccountStatePort {
                     throw new EmailExistsException("Email already exists");
                 });
 
-        userAccountRepository.save(mapper.fromEntity(userAccount));
+        userAccountRepository.save(UserAccountMapper.fromEntity(userAccount));
 
         return userAccount;
     }

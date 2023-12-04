@@ -6,7 +6,7 @@ import dev.minitrello.domain.UserAccount.UserAccountId;
 
 public class UserAccountMapper {
 
-    public UserAccount toEntity(UserAccountData userAccountData) {
+    public static UserAccount toEntity(UserAccountData userAccountData) {
         return UserAccount.withId(
                 new UserAccountId(userAccountData.getUserId()),
                 userAccountData.getUsername(),
@@ -16,7 +16,7 @@ public class UserAccountMapper {
         );
     }
 
-    public UserAccountData fromEntity(UserAccount userAccount) {
+    public static UserAccountData fromEntity(UserAccount userAccount) {
         return new UserAccountData(
                 userAccount.getId().getValue(),
                 userAccount.getUsername(),
@@ -25,4 +25,6 @@ public class UserAccountMapper {
                 userAccount.getCreatedAt()
         );
     }
+
+    private UserAccountMapper() {}
 }
