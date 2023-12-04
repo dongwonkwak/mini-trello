@@ -1,6 +1,7 @@
 package dev.minitrello.application.service;
 
 import dev.minitrello.adapters.output.h2.repository.UserAccountRepository;
+import dev.minitrello.application.ports.input.RegisterUserAccountCommand;
 import dev.minitrello.application.ports.input.RegisterUserAccountUseCase;
 import dev.minitrello.application.ports.output.RegisterUserAccountStatePort;
 import dev.minitrello.domain.UserAccount;
@@ -33,7 +34,7 @@ public class RegisterUserAccountStepDefinitions {
     @When("(s)he registers for a new account")
     public void registersForANewAccount() {
         this.savedUserAccount = this.registerUserAccountService.registerUserAccount(
-          new RegisterUserAccountUseCase.RegisterUserAccountCommand(
+          new RegisterUserAccountCommand(
                   this.userAccount.getUsername(),
                   this.userAccount.getEmail(),
                   this.userAccount.getPassword()

@@ -1,0 +1,10 @@
+[versions]
+spring = "3.1.2"
+junit = "5.10.1"
+cucumber = "7.14.1"
+
+[libraries]
+org-springframework-spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring" }
+org-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version = "junit" }
+io-cucumber-java = { module = "io.cucumber:cucumber-java", version = "cucumber" }
+io-cucumber-junit = { module = "io.cucumber:cucumber-junit", version = "cucumber" }

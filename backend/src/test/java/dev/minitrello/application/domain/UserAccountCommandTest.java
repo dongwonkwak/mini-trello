@@ -1,6 +1,6 @@
 package dev.minitrello.application.domain;
 
-import dev.minitrello.application.ports.input.RegisterUserAccountUseCase.RegisterUserAccountCommand;
+import dev.minitrello.application.ports.input.RegisterUserAccountCommand;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

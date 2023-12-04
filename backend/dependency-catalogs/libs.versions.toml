@@ -1,0 +1,22 @@
+[versions]
+spring = "3.1.2"
+spring-dependency = "1.1.2"
+openapi-generator = "7.1.0"
+passay = "1.6.3"
+junit = "5.10.1"
+swagger= "2.2.19"
+webmvcuiVersion = "2.2.0"
+cucumberVersion = "7.14.1"
+typeSafeVersion = "1.4.3"
+
+[libraries]
+org-springframework-spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "spring" }
+org-springframework-spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa", version.ref = "spring" }
+org-springframework-spring-boot-starter-validation = { group = "org.springframework.boot", name = "spring-boot-starter-validation", version.ref = "spring" }
+
+
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency" }
+openapi-generator = { id = "org.openapi.generator", version.ref = "openapi-generator" }
