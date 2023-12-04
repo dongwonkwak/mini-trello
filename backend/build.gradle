@@ -60,6 +60,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    jvmArgs '-Xshare:off'
 }
 
 compileJava.dependsOn tasks.openApiGenerate
+jar.enabled(false)

@@ -2,8 +2,9 @@ package dev.minitrello.application.ports.output;
 
 import dev.minitrello.domain.UserAccount;
 
+import java.util.Optional;
 
 
 public interface RegisterUserAccountStatePort {
-    UserAccount persistUserAccount(UserAccount userAccount);
+    Optional<UserAccount> persistUserAccount(UserAccount userAccount);
 }

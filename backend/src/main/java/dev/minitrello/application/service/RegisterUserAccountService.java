@@ -7,6 +7,8 @@ import dev.minitrello.domain.UserAccount;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -14,7 +16,7 @@ public class RegisterUserAccountService implements RegisterUserAccountUseCase {
     private final RegisterUserAccountStatePort registerUserAccountStatePort;
 
     @Override
-    public UserAccount registerUserAccount(RegisterUserAccountCommand command) {
+    public Optional<UserAccount> registerUserAccount(RegisterUserAccountCommand command) {
 
         return this.registerUserAccountStatePort.persistUserAccount(
                 UserAccount.createUserAccount(

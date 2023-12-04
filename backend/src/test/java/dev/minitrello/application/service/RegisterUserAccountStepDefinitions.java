@@ -1,17 +1,16 @@
 package dev.minitrello.application.service;
 
-import dev.minitrello.adapters.output.h2.repository.UserAccountRepository;
 import dev.minitrello.application.ports.input.RegisterUserAccountCommand;
-import dev.minitrello.application.ports.input.RegisterUserAccountUseCase;
 import dev.minitrello.application.ports.output.RegisterUserAccountStatePort;
 import dev.minitrello.domain.UserAccount;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 public class RegisterUserAccountStepDefinitions {
@@ -20,11 +19,9 @@ public class RegisterUserAccountStepDefinitions {
     private final RegisterUserAccountService registerUserAccountService =
             new RegisterUserAccountService(userAccountStatePort);
 
-    @Mock
-    UserAccountRepository repository;
 
     UserAccount userAccount;
-    UserAccount savedUserAccount;
+    Optional<UserAccount> savedUserAccount;
 
     @Given("{name} is not a Mini Trello Member")
     public void notAMiniTrelloMember(String name) {

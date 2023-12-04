@@ -10,6 +10,8 @@ import dev.minitrello.domain.UserAccount;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 
 @RequiredArgsConstructor
 public class UserAccountAdapter implements RegisterUserAccountStatePort {
@@ -17,7 +19,7 @@ public class UserAccountAdapter implements RegisterUserAccountStatePort {
 
 
     @Override
-    public UserAccount persistUserAccount(UserAccount userAccount) {
+    public Optional<UserAccount> persistUserAccount(UserAccount userAccount) {
         userAccountRepository.findByUsername(userAccount.getUsername())
                 .ifPresent(username -> {
                     throw new UsernameExistsException("Username already exists");
@@ -30,7 +32,7 @@ public class UserAccountAdapter implements RegisterUserAccountStatePort {
 
         userAccountRepository.save(UserAccountMapper.fromEntity(userAccount));
 
-        return userAccount;
+        return Optional.of(userAccount);
     }
 
 }

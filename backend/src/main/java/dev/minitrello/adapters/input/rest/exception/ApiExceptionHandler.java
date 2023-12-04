@@ -3,6 +3,7 @@ package dev.minitrello.adapters.input.rest.exception;
 
 import dev.minitrello.adapters.input.rest.model.ErrorMessage;
 import dev.minitrello.common.exception.EmailExistsException;
+import dev.minitrello.common.exception.GenericException;
 import dev.minitrello.common.exception.UsernameExistsException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,11 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(value = EmailExistsException.class)
     public ResponseEntity<ErrorMessage> handleEmailException(EmailExistsException exception) {
+        return createErrorResponse(exception, HttpStatus.BAD_REQUEST, "");
+    }
+
+    @ExceptionHandler(value = GenericException.class)
+    public ResponseEntity<ErrorMessage> handleGenericException(GenericException exception) {
         return createErrorResponse(exception, HttpStatus.BAD_REQUEST, "");
     }
 
