@@ -1,11 +1,17 @@
 rootProject.name = 'backend'
 
+ext.sharedVersions = [
+        spring: "3.1.2"
+]
+
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
+            version('spring', sharedVersions.spring)
             from(files("dependency-catalogs/libs.versions.toml"))
         }
         testLibs {
+            version('spring', sharedVersions.spring)
             from(files("dependency-catalogs/test-libs.versions.toml"))
         }
     }
