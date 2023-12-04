@@ -3,8 +3,18 @@ spring = "3.1.2"
 junit = "5.10.1"
 cucumber = "7.14.1"
 
+
 [libraries]
-org-springframework-spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring" }
-org-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version = "junit" }
-io-cucumber-java = { module = "io.cucumber:cucumber-java", version = "cucumber" }
-io-cucumber-junit = { module = "io.cucumber:cucumber-junit", version = "cucumber" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring"}
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-junit = { module = "io.cucumber:cucumber-junit", version.ref = "cucumber" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "1.9.3" }
+
+[bundles]
+testing = [
+    "spring-boot-starter-test",
+    "junit-jupiter",
+    "cucumber-java",
+    "cucumber-junit"
+]

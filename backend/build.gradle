@@ -1,8 +1,8 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.2'
-    id 'io.spring.dependency-management' version '1.1.2'
-    id "org.openapi.generator" version '7.1.0'
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.openapi.generator)
 }
 
 group = 'dev.minitrello'
@@ -37,44 +37,25 @@ openApiGenerate {
     ])
 }
 
-ext {
-    passayVersion = '1.6.4'
-    junitVersion = '5.10.1'
-    swaggerVersion = '2.2.19'
-    webmvcuiVersion = '2.2.0'
-    cucumberVersion = '7.14.1'
-    typeSafeVersion = '1.4.3'
-}
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation(libs.bundles.spring)
 
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
-    implementation 'com.fasterxml.jackson.core:jackson-databind'
-    implementation "org.passay:passay:${passayVersion}"
-    implementation "com.typesafe:config:${typeSafeVersion}"
+    implementation(libs.passay)
+    implementation(libs.type.safe)
 
-    runtimeOnly 'com.h2database:h2'
-    implementation 'org.flywaydb:flyway-core'
+    runtimeOnly(libs.h2database)
+    implementation(libs.flywaydb)
 
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 
     // OpenAPI
-    implementation "io.swagger.core.v3:swagger-annotations:${swaggerVersion}"
-    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${webmvcuiVersion}"
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
-    implementation 'org.openapitools:jackson-databind-nullable:0.2.2'
+    implementation(libs.bundles.openapi)
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation(testLibs.bundles.testing)
+    testRuntimeOnly(testLibs.junit.platform.launcher)
 
-    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
-    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
 }
 
 test {

@@ -2,18 +2,33 @@
 spring = "3.1.2"
 spring-dependency = "1.1.2"
 openapi-generator = "7.1.0"
-passay = "1.6.3"
-junit = "5.10.1"
-swagger= "2.2.19"
-webmvcuiVersion = "2.2.0"
-cucumberVersion = "7.14.1"
-typeSafeVersion = "1.4.3"
+
 
 [libraries]
-org-springframework-spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "spring" }
-org-springframework-spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa", version.ref = "spring" }
-org-springframework-spring-boot-starter-validation = { group = "org.springframework.boot", name = "spring-boot-starter-validation", version.ref = "spring" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring" }
+swagger-annotations = { module = "io.swagger.core.v3:swagger-annotations", version = "2.2.19" }
+webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version = "2.2.0" }
+json-databind-nullable = { module = "org.openapitools:jackson-databind-nullable", version = "0.2.2" }
+passay = { module = "org.passay:passay", version = "1.6.4" }
+type-safe = { module = "com.typesafe:config", version = "1.4.3" }
+lombok = { module = "org.projectlombok:lombok", version = "1.18.28" }
+flywaydb = { module = "org.flywaydb:flyway-core", version = "9.16.3" }
+h2database = { module = "com.h2database:h2", version = "2.1.214" }
 
+
+[bundles]
+spring = [
+    "spring-boot-starter-web",
+    "spring-boot-starter-data-jpa",
+    "spring-boot-starter-validation"
+]
+openapi = [
+    "swagger-annotations",
+    "webmvc-ui",
+    "json-databind-nullable"
+]
 
 
 [plugins]

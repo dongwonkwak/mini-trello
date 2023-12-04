@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @DisplayName("When register new account")
-//@SpringBootTest(classes = UserAccount.class)
 class UserAccountCommandTest {
 
     @Test
