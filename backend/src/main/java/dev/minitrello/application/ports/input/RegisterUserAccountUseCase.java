@@ -3,7 +3,7 @@ package dev.minitrello.application.ports.input;
 import dev.minitrello.application.ports.input.validation.ValidEmail;
 import dev.minitrello.application.ports.input.validation.ValidPassword;
 import dev.minitrello.application.ports.input.validation.ValidUsername;
-import dev.minitrello.domain.entity.UserAccount;
+import dev.minitrello.domain.UserAccount;
 import jakarta.validation.constraints.NotEmpty;
 
 

@@ -2,7 +2,7 @@ package dev.minitrello.application.service;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
-import dev.minitrello.domain.entity.UserAccount;
+import dev.minitrello.domain.UserAccount;
 
 public class UserTestData {
     private static final Config config =

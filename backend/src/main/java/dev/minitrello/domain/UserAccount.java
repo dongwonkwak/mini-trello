@@ -1,4 +1,4 @@
-package dev.minitrello.domain.entity;
+package dev.minitrello.domain;
 
 
 import lombok.AllArgsConstructor;

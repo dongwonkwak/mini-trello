@@ -6,7 +6,7 @@ import dev.minitrello.adapters.output.h2.repository.UserAccountRepository;
 import dev.minitrello.application.ports.output.RegisterUserAccountStatePort;
 import dev.minitrello.common.exception.EmailExistsException;
 import dev.minitrello.common.exception.UsernameExistsException;
-import dev.minitrello.domain.entity.UserAccount;
+import dev.minitrello.domain.UserAccount;
 
 import lombok.RequiredArgsConstructor;
 

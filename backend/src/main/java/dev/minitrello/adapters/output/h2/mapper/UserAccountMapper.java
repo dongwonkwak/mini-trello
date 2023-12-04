@@ -1,8 +1,8 @@
 package dev.minitrello.adapters.output.h2.mapper;
 
 import dev.minitrello.adapters.output.h2.data.UserAccountData;
-import dev.minitrello.domain.entity.UserAccount;
-import dev.minitrello.domain.entity.UserAccount.UserAccountId;
+import dev.minitrello.domain.UserAccount;
+import dev.minitrello.domain.UserAccount.UserAccountId;
 
 public class UserAccountMapper {
 

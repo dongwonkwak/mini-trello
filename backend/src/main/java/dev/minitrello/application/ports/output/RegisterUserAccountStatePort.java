@@ -1,6 +1,6 @@
 package dev.minitrello.application.ports.output;
 
-import dev.minitrello.domain.entity.UserAccount;
+import dev.minitrello.domain.UserAccount;
 
 
 
