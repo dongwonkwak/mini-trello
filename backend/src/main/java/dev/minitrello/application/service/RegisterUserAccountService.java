@@ -2,6 +2,7 @@ package dev.minitrello.application.service;
 
 import dev.minitrello.application.ports.output.RegisterUserAccountStatePort;
 import dev.minitrello.application.ports.input.RegisterUserAccountUseCase;
+import dev.minitrello.application.ports.input.RegisterUserAccountCommand;
 import dev.minitrello.domain.UserAccount;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

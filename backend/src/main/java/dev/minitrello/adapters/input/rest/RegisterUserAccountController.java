@@ -5,7 +5,7 @@ import dev.minitrello.adapters.input.rest.api.UserApi;
 import dev.minitrello.adapters.input.rest.model.SignUpReq;
 import dev.minitrello.adapters.input.rest.model.SignedInUser;
 import dev.minitrello.application.ports.input.RegisterUserAccountUseCase;
-import dev.minitrello.application.ports.input.RegisterUserAccountUseCase.RegisterUserAccountCommand;
+import dev.minitrello.application.ports.input.RegisterUserAccountCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
