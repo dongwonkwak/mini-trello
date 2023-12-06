@@ -53,8 +53,13 @@ dependencies {
     // OpenAPI
     implementation(libs.bundles.openapi)
 
+    // postgres
+    runtimeOnly(libs.postgresql)
+
+    testImplementation platform(testLibs.junit.bom)
     testImplementation(testLibs.bundles.testing)
-    testRuntimeOnly(testLibs.junit.platform.launcher)
+    testImplementation(testLibs.bundles.cucumber)
+    testImplementation(testLibs.bundles.testcontainers)
 
 }
 

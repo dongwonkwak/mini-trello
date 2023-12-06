@@ -1,46 +1,88 @@
 package dev.minitrello.application.service;
 
 import dev.minitrello.application.ports.input.RegisterUserAccountCommand;
-import dev.minitrello.application.ports.output.RegisterUserAccountStatePort;
 import dev.minitrello.domain.UserAccount;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import jakarta.validation.ConstraintViolationException;
+import org.junit.jupiter.api.Assertions;
 
-import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
+
 public class RegisterUserAccountStepDefinitions {
-    private final RegisterUserAccountStatePort userAccountStatePort =
-            Mockito.mock(RegisterUserAccountStatePort.class);
-    private final RegisterUserAccountService registerUserAccountService =
-            new RegisterUserAccountService(userAccountStatePort);
-
 
     UserAccount userAccount;
-    Optional<UserAccount> savedUserAccount;
 
     @Given("{name} is not a Mini Trello Member")
     public void notAMiniTrelloMember(String name) {
         this.userAccount = UserTestData.withName(name);
     }
 
-    @When("(s)he registers for a new account")
-    public void registersForANewAccount() {
-        this.savedUserAccount = this.registerUserAccountService.registerUserAccount(
-          new RegisterUserAccountCommand(
-                  this.userAccount.getUsername(),
-                  this.userAccount.getEmail(),
-                  this.userAccount.getPassword()
-          )
+   @When("he/she tries to register with a username of {}")
+   public void triesToRegisterWithAUsernameOf(String username) {
+       this.userAccount = UserAccount.withId(
+               this.userAccount.getId(),
+               username,
+               this.userAccount.getEmail(),
+               this.userAccount.getPassword(),
+               this.userAccount.getCreatedAt()
+       );
+    }
+
+    @When("he/she tries to register with an email of {}")
+    public void triesToRegisterWithAEmailOf(String email) {
+        this.userAccount = UserAccount.withId(
+                this.userAccount.getId(),
+                this.userAccount.getUsername(),
+                email,
+                this.userAccount.getPassword(),
+                this.userAccount.getCreatedAt()
         );
     }
 
-    @Then("(s)he became a Mini Trello member")
-    public void becameATrelloMember() {
-        //Assertions.assertSame(this.userAccount, this.savedUserAccount);
+    @Then("^the username should be Accepted.*")
+    public void theUsernameShouldBeAccepted() {
+        RegisterUserAccountCommand.builder()
+                .username(this.userAccount.getUsername())
+                .email(this.userAccount.getEmail())
+                .password(this.userAccount.getPassword())
+                .build();
+    }
+
+    @Then("^the username should be Rejected with the message \"(.*)\"")
+    public void theUsernameShouldBeRejected(String reason) {
+        var exception = Assertions.assertThrows(ConstraintViolationException.class, () -> {
+            RegisterUserAccountCommand.builder()
+                    .username(this.userAccount.getUsername())
+                    .email(this.userAccount.getEmail())
+                    .password(this.userAccount.getPassword())
+                    .build();
+        });
+
+        assertEquals(reason, exception.getMessage());
+    }
+
+    @Then("^the email should be Accepted.*")
+    public void theEmailShouldBeAccepted() {
+        RegisterUserAccountCommand.builder()
+                .username(this.userAccount.getUsername())
+                .email(this.userAccount.getEmail())
+                .password(this.userAccount.getPassword())
+                .build();
+    }
+
+    @Then("^the email should be Rejected with the message \"(.*)\"")
+    public void theEmailShouldBeRejected(String reason) {
+        var exception = Assertions.assertThrows(ConstraintViolationException.class, () -> {
+            RegisterUserAccountCommand.builder()
+                    .username(this.userAccount.getUsername())
+                    .email(this.userAccount.getEmail())
+                    .password(this.userAccount.getPassword())
+                    .build();
+        });
+
+        assertEquals(reason, exception.getMessage());
     }
 }

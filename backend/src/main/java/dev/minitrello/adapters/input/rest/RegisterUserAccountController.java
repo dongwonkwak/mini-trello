@@ -26,11 +26,12 @@ public class RegisterUserAccountController implements UserApi {
     @Override
     public ResponseEntity<SignedInUser> signUp(SignUpReq signUpReq) {
         var newUser = registerUserAccountUseCase.registerUserAccount(
-                new RegisterUserAccountCommand(
-                    signUpReq.getUsername(),
-                    signUpReq.getEmail(),
-                    signUpReq.getPassword()
-        )).orElseThrow(() -> new GenericException("registerUserAccount fails."));
+                RegisterUserAccountCommand.builder()
+                        .username(signUpReq.getUsername())
+                        .email(signUpReq.getEmail())
+                        .password(signUpReq.getPassword())
+                        .build()
+        ).orElseThrow(() -> new GenericException("registerUserAccount fails."));
 
 
         var u = new SignedInUser()

@@ -17,7 +17,6 @@ public class RegisterUserAccountService implements RegisterUserAccountUseCase {
 
     @Override
     public Optional<UserAccount> registerUserAccount(RegisterUserAccountCommand command) {
-
         return this.registerUserAccountStatePort.persistUserAccount(
                 UserAccount.createUserAccount(
                         command.username(),
