@@ -1,19 +1,42 @@
 [versions]
 junit = "5.10.1"
+junit-platform = "1.10.1"
 cucumber = "7.14.1"
-
+testcontainer = "1.18.3"
 
 [libraries]
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring"}
+
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform = { module = "org.junit.platform:junit-platform-suite-api", version.ref = "junit-platform" }
+junit-engine = { module = "org.junit.platform:junit-platform-engine", version.ref = "junit-platform" }
+
+testcontainers-junit = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainer" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainer" }
+
 cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-spring = { module = "io.cucumber:cucumber-spring", version.ref = "cucumber" }
 cucumber-junit = { module = "io.cucumber:cucumber-junit", version.ref = "cucumber" }
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "1.9.3" }
+cucumber-junit-platform = { module = "io.cucumber:cucumber-junit-platform-engine", version.ref = "cucumber" }
+
 
 [bundles]
 testing = [
     "spring-boot-starter-test",
     "junit-jupiter",
+    "junit-platform",
+    "junit-engine"
+]
+
+cucumber = [
     "cucumber-java",
-    "cucumber-junit"
+    "cucumber-junit",
+    "cucumber-spring",
+    "cucumber-junit-platform"
+]
+
+testcontainers = [
+    "testcontainers-junit",
+    "testcontainers-postgresql",
 ]

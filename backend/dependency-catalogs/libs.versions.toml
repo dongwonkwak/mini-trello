@@ -15,7 +15,7 @@ type-safe = { module = "com.typesafe:config", version = "1.4.3" }
 lombok = { module = "org.projectlombok:lombok", version = "1.18.28" }
 flywaydb = { module = "org.flywaydb:flyway-core", version = "9.16.3" }
 h2database = { module = "com.h2database:h2", version = "2.1.214" }
-
+postgresql = { module = "org.postgresql:postgresql", version = "42.5.1" }
 
 [bundles]
 spring = [
